@@ -3,14 +3,20 @@ import Botao from "../Botao";
 import CampoTexto from "../CampoTexto";
 import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
+import { IAgente } from "../../shared/interfaces/IAgente";
 
-const Formulario = (props) => {
+interface FormularioProps {
+  aoAgenteCadastrado: (agente: IAgente) => void;
+  funcoes: string[];
+}
+
+const Formulario = (props: FormularioProps) => {
   const [nome, setNome] = useState("");
   const [genero, setGenero] = useState("");
   const [imagem, setImagem] = useState("");
   const [funcao, setFuncao] = useState("");
 
-  const aoSalvar = (e) => {
+  const aoSalvar = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     props.aoAgenteCadastrado({
       nome: nome,
@@ -29,21 +35,18 @@ const Formulario = (props) => {
       <form onSubmit={aoSalvar}>
         <h2>Preencha os dados para criar o card do Agente.</h2>
         <CampoTexto
-          obrigatorio={true}
           label="Nome"
           placeholder="Digite seu nome"
           valor={nome}
           aoAlterado={(valor) => setNome(valor)}
         />
         <CampoTexto
-          obrigatorio={true}
           label="Genêro"
           placeholder="Digite seu genêro"
           valor={genero}
           aoAlterado={(valor) => setGenero(valor)}
         />
         <CampoTexto
-          obrigatorio={false}
           label="Imagem"
           placeholder="Digite o endereço da imagem"
           valor={imagem}

@@ -5,11 +5,16 @@ interface CampoTextoProps {
   placeholder: string;
   label: string;
   valor: string;
-  obrigatorio: boolean;
+  obrigatorio?: boolean;
 }
 
-const CampoTexto = ({aoAlterado, label, obrigatorio, placeholder, valor}: CampoTextoProps) => {
-
+const CampoTexto = ({
+  aoAlterado,
+  label,
+  placeholder,
+  valor,
+  obrigatorio = false,
+}: CampoTextoProps) => {
   const aoDigitado = (e: React.ChangeEvent<HTMLInputElement>) => {
     aoAlterado(e.target.value);
   };
