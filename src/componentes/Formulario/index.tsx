@@ -15,6 +15,7 @@ const Formulario = (props: FormularioProps) => {
   const [genero, setGenero] = useState("");
   const [imagem, setImagem] = useState("");
   const [funcao, setFuncao] = useState("");
+  const [data, setData] = useState("");
 
   const aoSalvar = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,11 +24,13 @@ const Formulario = (props: FormularioProps) => {
       genero: genero,
       imagem: imagem,
       funcao: funcao,
+      data: data,
     });
     setNome("");
     setGenero("");
     setImagem("");
     setFuncao("");
+    setData("");
   };
 
   return (
@@ -51,6 +54,13 @@ const Formulario = (props: FormularioProps) => {
           placeholder="Digite o endereço da imagem"
           valor={imagem}
           aoAlterado={(valor) => setImagem(valor)}
+        />
+        <CampoTexto
+          label="Data de entrada na função"
+          placeholder=""
+          valor={data}
+          tipo="date"
+          aoAlterado={(valor) => setData(valor)}
         />
         <ListaSuspensa
           obrigatorio={true}

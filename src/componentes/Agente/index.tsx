@@ -5,9 +5,10 @@ interface AgenteProps {
   imagem: string;
   funcao: string;
   corDeFundo: string;
+  data: string;
 }
 
-const Agente = ({ nome, imagem, funcao, corDeFundo }: AgenteProps) => {
+const Agente = ({ nome, imagem, funcao, corDeFundo, data }: AgenteProps) => {
   return (
     <div className="agente">
       <div className="cabecalho" style={{ backgroundColor: corDeFundo }}>
@@ -16,6 +17,7 @@ const Agente = ({ nome, imagem, funcao, corDeFundo }: AgenteProps) => {
       <div className="rodape">
         <h4>{nome}</h4>
         <h5>{funcao}</h5>
+        <h5>{new Date(data).toLocaleDateString()}</h5>
       </div>
     </div>
   );

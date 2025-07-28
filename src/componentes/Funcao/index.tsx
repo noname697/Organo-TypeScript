@@ -24,6 +24,7 @@ const Funcao = (props: TimeProps) => {
             nome={agente.nome}
             funcao={agente.funcao}
             imagem={agente.imagem}
+            data={agente.data}
           />
         ))}
       </div>
