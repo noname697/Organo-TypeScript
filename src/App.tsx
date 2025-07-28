@@ -3,6 +3,7 @@ import Banner from "./componentes/Banner";
 import Formulario from "./componentes/Formulario";
 import Funcao from "./componentes/Funcao";
 import Footer from "./componentes/Footer";
+import { IAgente } from "./shared/interfaces/IAgente";
 
 function App() {
   const funcoes = [
@@ -28,10 +29,9 @@ function App() {
     },
   ];
 
-  const [agentes, setAgentes] = useState([]);
+  const [agentes, setAgentes] = useState<IAgente[]>([]);
 
-  const aoNovoAgenteAdicionado = (agente) => {
-    console.log(agente);
+  const aoNovoAgenteAdicionado = (agente: IAgente) => {
     setAgentes([...agentes, agente]);
   };
 
@@ -48,9 +48,7 @@ function App() {
           nome={funcao.nome}
           corPrimaria={funcao.corPrimaria}
           corSecundaria={funcao.corSecundaria}
-          agentes={agentes.filter(
-            (colaborador) => colaborador.funcao === funcao.nome
-          )}
+          agentes={agentes.filter((agente) => agente.funcao === funcao.nome)}
         />
       ))}
       <Footer />

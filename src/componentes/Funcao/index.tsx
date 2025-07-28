@@ -29,7 +29,7 @@ const Funcao = (props: TimeProps) => {
       </div>
     </section>
   ) : (
-    ""
+    <></>
   );
 };
 
