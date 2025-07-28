@@ -1,5 +1,5 @@
 export interface IAgente {
   nome: string;
-  cargo: string;
+  funcao: string;
   imagem: string;
 }

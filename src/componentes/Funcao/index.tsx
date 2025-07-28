@@ -1,7 +1,15 @@
+import { IAgente } from "../../shared/interfaces/IAgente";
 import Agente from "../Agente";
 import "./Funcao.css";
 
-const Funcao = (props) => {
+interface TimeProps {
+  corPrimaria: string;
+  corSecundaria: string;
+  nome: string;
+  agentes: IAgente[];
+}
+
+const Funcao = (props: TimeProps) => {
   return props.agentes.length > 0 ? (
     <section
       className="funcao"
@@ -11,7 +19,7 @@ const Funcao = (props) => {
       <div className="agentes">
         {props.agentes.map((agente) => (
           <Agente
-          corDeFundo={props.corPrimaria}
+            corDeFundo={props.corPrimaria}
             key={agente.nome}
             nome={agente.nome}
             funcao={agente.funcao}
