@@ -1,8 +1,16 @@
 import "./CampoTexto.css";
 
-const CampoTexto = (props) => {
+interface CampoTextoProps {
+  aoAlterado: (valor: string) => void;
+  placeholder: string;
+  label: string;
+  valor: string;
+  obrigatorio: boolean;
+}
 
-  const aoDigitado = (e) => {
+const CampoTexto = (props: CampoTextoProps) => {
+  
+  const aoDigitado = (e: React.ChangeEvent<HTMLInputElement>) => {
     props.aoAlterado(e.target.value);
   };
 

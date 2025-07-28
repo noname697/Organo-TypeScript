@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Banner from "./componentes/Banner"
+import Banner from "./componentes/Banner";
 import Formulario from "./componentes/Formulario";
 import Funcao from "./componentes/Funcao";
 import Footer from "./componentes/Footer";
@@ -37,7 +37,7 @@ function App() {
 
   return (
     <div className="App">
-      <Banner endereco="/imagens/banner.png"/>
+      <Banner endereco="/imagens/banner.png" />
       <Formulario
         funcoes={funcoes.map((funcao) => funcao.nome)}
         aoAgenteCadastrado={(agente) => aoNovoAgenteAdicionado(agente)}
@@ -48,7 +48,9 @@ function App() {
           nome={funcao.nome}
           corPrimaria={funcao.corPrimaria}
           corSecundaria={funcao.corSecundaria}
-          agentes={agentes.filter(colaborador => colaborador.funcao === funcao.nome)}
+          agentes={agentes.filter(
+            (colaborador) => colaborador.funcao === funcao.nome
+          )}
         />
       ))}
       <Footer />
